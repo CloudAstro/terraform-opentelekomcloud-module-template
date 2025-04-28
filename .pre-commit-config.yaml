@@ -51,14 +51,14 @@ repos:
         args:
           - --args=terraform
           - --args=--recursive
-          - --args=--version 1.8.5
+          - --args=--version "~> 1.9.0"
 
       - id: tfupdate
         name: Autoupdate provider opentelekomcloud versions
         args:
           - --args=provider opentelekomcloud
           - --args=--recursive
-          - --args=--version 1.36.35
+          - --args=--version ">= 1.36.35"
 
       - id: tofu_fmt
         args:
@@ -70,8 +70,7 @@ repos:
           - --hook-config=--add-to-existing-file=true
           - --hook-config=--create-file-if-not-exist=true
           - --hook-config=--use-standard-markers=true
-        files: ^[^/]+/
-        exclude: /examples/
+        exclude: ^examples
 
       - id: tofu_validate
         exclude: ^examples
@@ -80,7 +79,7 @@ repos:
           - --hook-config=--retry-once-with-cleanup=true
 
       - id: tofu_tflint
-        exclude: ^(terraform-module-template|.*/examples/.*)
+        exclude: ^examples
         args:
           - --args=--config=.tflint.hcl
           - --env-vars=TFLINT_LOG="info"
@@ -102,4 +101,3 @@ repos:
       - id: commitlint
         stages: [commit-msg]
         additional_dependencies: ["@commitlint/config-conventional"]
-        args: [--config=.commitlintrc.yml]
