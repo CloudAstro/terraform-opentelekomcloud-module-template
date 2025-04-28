@@ -27,11 +27,9 @@ override.tf.json
 .terraformrc
 terraform.rc
 
-# otc
-openrc
-adminrc
-otcrc
-otcrc.sh
+# Azure
+.azure/
+azure-context.sh
 
 # VSCode / JetBrains
 .vscode/
@@ -59,4 +57,3 @@ __pycache__/
 *.bak
 *.tmp
 *.orig
-*.txt
