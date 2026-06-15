@@ -51,7 +51,7 @@ repos:
         args:
           - --args=terraform
           - --args=--recursive
-          - --args=--version "~> 1.9.0"
+          - --args=--version "~> 1.12.2"
 
       - id: tfupdate
         name: Autoupdate provider opentelekomcloud versions
